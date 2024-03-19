@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="number.css">
+  <title>Number Guessing Game</title>
+</head>
+<body>
+  <input type="number" id="in"><br>
+  <button id="btn" style="background-color:red;">Submit</button>
+  <p id="feedback" style="background-color:green;"></p>
+  <script>
+    let returns = document.getElementById("feedback");
+    let guessingInput = document.getElementById("in");
+    let guessing1 = [10, 76, 5, 71, 28];
+
+    document.getElementById("btn").addEventListener("click", function () {
+      let guessedNumber = parseInt(guessingInput.value);
+      if (isNaN(guessedNumber)) {
+        returns.textContent = "Please enter a number";
+      } else if (guessedNumber < Math.min(...guessing1)) {
+        returns.textContent = "Number is too small";
+      } else if (guessedNumber > Math.max(...guessing1)) {
+        returns.textContent = "Number is too high";
+      } else if (guessing1.includes(guessedNumber)) {
+        returns.textContent = "Congratulations! You win";
+      }
+    });
+  </script>
+</body>
+<footer>
+    <p>&copy; 2024 SamiedoGuesingGame. All rights reserved.</p>
+</footer>
+</html>
